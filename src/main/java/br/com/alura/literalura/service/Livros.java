@@ -16,7 +16,7 @@ public class Livros {
     private ConsumoApi consumoApi = new ConsumoApi();
     private Dados conversor = new Dados();
 
-    private LivroRepository repositorio;
+    public LivroRepository repositorio;
 
     private String title;
     private List<Autor> authors;
@@ -139,7 +139,7 @@ public class Livros {
     }
 
     public void listarAutores() {
-        List<String> acervo = repositorio.findNomeAutores();
+        List<AutorModel> acervo = repositorio.findNomeAutores();
         if(acervo.isEmpty()){
             System.out.println("Acervo ainda sem registros! \n");
             acervo.forEach(System.out::println);
@@ -149,6 +149,7 @@ public class Livros {
         }
 
     }
+
     public void listarAutoresVivos() {
         System.out.println("Digite o ano que deseja pesquisar: ");
         Integer ano = leitura.nextInt();
@@ -162,6 +163,7 @@ public class Livros {
         }
 
     }
+
     public void listarLivroPorIdioma() {
         System.out.println("Digite o idioma que deseja consultarr: ");
         String idioma = leitura.nextLine();

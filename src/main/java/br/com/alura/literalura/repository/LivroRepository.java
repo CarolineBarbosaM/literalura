@@ -12,7 +12,7 @@ public interface LivroRepository extends JpaRepository<LivroModel, Long> {
     List<LivroModel> findAll();
 
     @Query("SELECT a.nome FROM Autor a")
-    List<String> findNomeAutores();
+    List<AutorModel> findNomeAutores();
 
     @Query("SELECT a FROM Autor a WHERE a.nascAno IS NOT NULL AND (a.mortAno IS NULL OR :ano <= a.mortAno) AND :ano >= a.nascAno")
     List<AutorModel> findAutoresEmDeterminadoAno(Integer ano);
